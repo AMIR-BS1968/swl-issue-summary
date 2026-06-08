@@ -43,8 +43,8 @@ export function calculateMetrics(issues: Issue[]): DashboardMetrics {
     )
   );
 
-  // 3. Open Issues (TODO, IN PROGRESS, IN QA, NOT RESOLVED)
-  const openStatuses: IssueStatus[] = ["TODO", "IN PROGRESS", "IN QA", "NOT RESOLVED"];
+  // 3. Open Issues (TODO, IN PROGRESS, NOT RESOLVED)
+  const openStatuses: IssueStatus[] = ["TODO", "IN PROGRESS", "NOT RESOLVED"];
   const totalOpenCount = calculateBreakdown(
     issues.filter((issue) => openStatuses.includes(issue.issueStatus))
   );

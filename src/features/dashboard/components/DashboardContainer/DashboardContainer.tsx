@@ -94,16 +94,16 @@ export function DashboardContainer() {
                 description="Fixed/Resolved today"
               />
               <MetricCardMobile
-                label="Total Open"
+                label="Open Issues"
                 value={metrics.totalOpenCount.total}
                 appValue={metrics.totalOpenCount.app}
                 adminValue={metrics.totalOpenCount.admin}
                 loading={isLoading}
                 icon={<CircleDot className="h-4 w-4" />}
-                description="Needs work/QA"
+                description="Needs development"
               />
               <MetricCardMobile
-                label="Awaiting Deployment"
+                label="Fixed and Deployed"
                 value={metrics.awaitingDeploymentCount.total}
                 appValue={metrics.awaitingDeploymentCount.app}
                 adminValue={metrics.awaitingDeploymentCount.admin}
@@ -112,7 +112,7 @@ export function DashboardContainer() {
                 description="Status is FIXED"
               />
               <MetricCardMobile
-                label="Total Closed"
+                label="Resolved Issues"
                 value={metrics.totalClosedCount.total}
                 appValue={metrics.totalClosedCount.app}
                 adminValue={metrics.totalClosedCount.admin}
@@ -122,13 +122,13 @@ export function DashboardContainer() {
               />
               <div className="col-span-2">
                 <MetricCardMobile
-                  label="QA Bottlenecks"
+                  label="In QA"
                   value={metrics.qaBottleneckCount.total}
                   appValue={metrics.qaBottleneckCount.app}
                   adminValue={metrics.qaBottleneckCount.admin}
                   loading={isLoading}
                   icon={<HelpCircle className="h-4 w-4" />}
-                  description="Issues stuck in QA state"
+                  description="Testing ongoing"
                 />
               </div>
             </>
@@ -159,10 +159,10 @@ export function DashboardContainer() {
                 adminValue={metrics.totalOpenCount.admin}
                 loading={isLoading}
                 icon={<CircleDot className="h-5 w-5" />}
-                description="Needs development or QA"
+                description="Needs development"
               />
               <MetricCard
-                label="Awaiting Deployment"
+                label="Fixed and Deployed"
                 value={metrics.awaitingDeploymentCount.total}
                 appValue={metrics.awaitingDeploymentCount.app}
                 adminValue={metrics.awaitingDeploymentCount.admin}
@@ -171,7 +171,7 @@ export function DashboardContainer() {
                 description="Status is FIXED"
               />
               <MetricCard
-                label="Closed Issues"
+                label="Resolved Issues"
                 value={metrics.totalClosedCount.total}
                 appValue={metrics.totalClosedCount.app}
                 adminValue={metrics.totalClosedCount.admin}
@@ -180,13 +180,13 @@ export function DashboardContainer() {
                 description="Status is RESOLVED"
               />
               <MetricCard
-                label="QA Bottlenecks"
+                label="In QA"
                 value={metrics.qaBottleneckCount.total}
                 appValue={metrics.qaBottleneckCount.app}
                 adminValue={metrics.qaBottleneckCount.admin}
                 loading={isLoading}
                 icon={<HelpCircle className="h-5 w-5" />}
-                description="Stuck in IN QA status"
+                description="Testing ongoing"
               />
             </>
           )}
