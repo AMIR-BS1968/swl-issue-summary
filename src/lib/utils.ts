@@ -39,3 +39,31 @@ export function parseSheetDate(dateStr: string | null | undefined): Date | null 
 
   return null;
 }
+
+/**
+ * Parses time estimation strings like "1h 20m" or "30m" into total minutes.
+ */
+export function parseEstimation(est: string | null | undefined): number {
+  if (!est) return 0;
+  let totalMinutes = 0;
+  
+  const hMatch = est.match(/(\d+)\s*h/i);
+  if (hMatch) totalMinutes += parseInt(hMatch[1], 10) * 60;
+  
+  const mMatch = est.match(/(\d+)\s*m/i);
+  if (mMatch) totalMinutes += parseInt(mMatch[1], 10);
+  
+  return totalMinutes;
+}
+
+/**
+ * Formats total minutes back to "Xh Ym" format.
+ */
+export function formatMinutes(totalMinutes: number): string {
+  if (totalMinutes === 0) return "0m";
+  const h = Math.floor(totalMinutes / 60);
+  const m = totalMinutes % 60;
+  if (h > 0 && m > 0) return `${h}h ${m}m`;
+  if (h > 0) return `${h}h`;
+  return `${m}m`;
+}

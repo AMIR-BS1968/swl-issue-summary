@@ -77,7 +77,7 @@ export function AssigneeStatusTable({ issues, loading = false }: AssigneeStatusT
   }
 
   return (
-    <div className="rounded-xl border border-border/30 overflow-hidden bg-zinc-900/20 backdrop-blur-sm mt-6">
+    <div className="rounded-xl border border-border/30 overflow-hidden bg-zinc-900/20 backdrop-blur-sm h-full flex flex-col">
       <div className="p-4 border-b border-border/20 bg-zinc-900/40">
         <h3 className="text-sm font-semibold text-white">Assignee Status Breakdown</h3>
         <p className="text-xs text-zinc-500 mt-0.5">Status counts across all team members</p>

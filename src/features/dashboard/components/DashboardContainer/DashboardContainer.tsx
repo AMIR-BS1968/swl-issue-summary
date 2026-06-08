@@ -3,10 +3,12 @@
 import { useIssues } from "../../hooks/useIssues";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import { MetricCard, MetricCardMobile } from "@/components/metrics/MetricCard";
+import { EstimationCardsSection } from "@/components/metrics/EstimationCardsSection/EstimationCardsSection";
 import { Filters, FiltersMobile } from "@/components/filters/Filters";
 import { IssuesTable, IssuesTableMobile } from "@/components/tables/IssuesTable";
 import { AssigneeCards } from "@/components/assignee/AssigneeCards/AssigneeCards";
 import { AssigneeStatusTable } from "@/components/assignee/AssigneeStatusTable/AssigneeStatusTable";
+import { TodayWorkloadCard } from "@/components/assignee/TodayWorkloadCard/TodayWorkloadCard";
 import { ModuleCharts } from "@/components/modules/ModuleList/ModuleList";
 import { Button } from "@/components/ui/button";
 import { RefreshCw, Bug, ShieldCheck, CircleDot, Archive, HelpCircle } from "lucide-react";
@@ -171,6 +173,19 @@ export function DashboardContainer() {
           )}
         </section>
 
+        {/* 1.5 Estimation Cards */}
+        <section className="space-y-4">
+          <div>
+            <h2 className="text-sm font-bold uppercase tracking-wider text-zinc-500">
+              Workload Estimation
+            </h2>
+            <p className="text-xs text-zinc-600 mt-0.5">
+              Remaining vs total estimated time
+            </p>
+          </div>
+          <EstimationCardsSection issues={rawIssues} loading={isLoading} />
+        </section>
+
         {/* 2. Issues by Assignee */}
         <section className="space-y-4">
           <div>
@@ -182,7 +197,14 @@ export function DashboardContainer() {
             </p>
           </div>
           <AssigneeCards issues={rawIssues} loading={isLoading} />
-          <AssigneeStatusTable issues={rawIssues} loading={isLoading} />
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 pt-2">
+            <div className="lg:col-span-3">
+              <AssigneeStatusTable issues={rawIssues} loading={isLoading} />
+            </div>
+            <div className="lg:col-span-1 min-h-[300px]">
+              <TodayWorkloadCard issues={rawIssues} loading={isLoading} />
+            </div>
+          </div>
         </section>
 
         {/* 3. Problem Areas by Module */}
